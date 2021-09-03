@@ -47,6 +47,10 @@ const followersArray = [
   "luishrd",
   "bigknell",
 ];
+followersArray.forEach(username =>{
+  getInfo(username)
+})
+
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
@@ -67,7 +71,7 @@ const followersArray = [
       </div>
     </div>
 */
-function cardMaker(obj) {
+function cardMaker(allName) {
   const card1 = document.createElement("div");
   const img = document.createElement("img");
   const cardInfo = document.createElement("div");
@@ -91,19 +95,19 @@ function cardMaker(obj) {
   cardInfo.appendChild(username1);
   cardInfo.appendChild(location1);
   cardInfo.appendChild(profile1);
-  
+
   profile1.appendChild(link);
   cardInfo.appendChild(followers);
   cardInfo.appendChild(following);
   cardInfo.appendChild(bio);
 
-  img.src = obj.avatar_url;
-  h3.textContent = obj.name;
-  username1.textContent = obj.login;
+  img.src = allName.avatar_url;
+  h3.textContent = allName.name;
+  username1.textContent = allName.login;
   location1.textContent = obj.location;
-  link.href = obj.html_url;
-  link.textContent = obj.html_url;
-  followers.textContent = obj.followers;
-  following.textContent = obj.following;
+  link.href = allName.html_url;
+  link.textContent = allName.html_url;
+  followers.textContent = allName.followers;
+  following.textContent = allName.following;
   return card1;
 }
